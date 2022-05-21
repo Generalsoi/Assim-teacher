@@ -101,6 +101,13 @@ const SignUpPageTwo = ({ onContinue }) => {
                 />
               </div>
               <div>
+                <input
+                  {...register("governmentIDUrl")}
+                  type="file"
+                  placeholder="Click here to upload"
+                />
+              </div>
+              <div>
                 <button type="submit">Next</button>
               </div>
             </form>
