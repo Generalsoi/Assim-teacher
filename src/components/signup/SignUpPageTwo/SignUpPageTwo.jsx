@@ -43,37 +43,61 @@ const SignUpPageTwo = ({ onContinue }) => {
             <form onSubmit={handleSubmit(onSubmit)}>
               <div>
                 <input
-                  {...register("school", {
-                    required: "Please enter your school",
+                  {...register("workLocation", {
+                    required: "Please enter your work location",
                     minLength: {
                       value: 1,
                       message: "Your school name must exceed 1 characters",
                     },
                   })}
                   type="text"
-                  placeholder="Where do you school?"
+                  placeholder="Where do you work?"
                 />
-                {errors.school && (
+                {errors.workLocation && (
                   <p
                     className="error"
-                    style={{ color: "red", fontSize: "12px", marginTop: "0" }}
+                    style={{
+                      color: "red",
+                      fontSize: "12px",
+                      marginTop: "0",
+                      marginBottom: "0",
+                    }}
                   >
-                    {errors.school.message}
+                    {errors.workLocation.message}
                   </p>
                 )}
               </div>
               <div>
                 <input
-                  {...register("favoriteSubject")}
+                  {...register("courseOfExpertise", {
+                    required: "Please enter your course of expertise",
+                    minLength: {
+                      value: 1,
+                      message: "Your school name must exceed 1 characters",
+                    },
+                  })}
                   type="text"
-                  placeholder="What is your favorite subject?"
+                  placeholder="What is your course of expertise?"
                 />
+                {errors.courseOfExpertise && (
+                  <p
+                    className="error"
+                    style={{
+                      color: "red",
+                      fontSize: "12px",
+                      marginTop: "0",
+                      marginBottom: "0",
+                    }}
+                  >
+                    {errors.courseOfExpertise.message}
+                  </p>
+                )}
               </div>
               <div>
                 <input
-                  {...register("leastFavoriteSubject")}
+                  {...register("workEmail")}
                   type="text"
-                  placeholder="What is your least favorite subject?"
+                  placeholder="Enter work email address"
                 />
               </div>
               <div>
