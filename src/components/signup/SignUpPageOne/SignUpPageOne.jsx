@@ -96,7 +96,12 @@ const SignUpPageOne = ({ onContinue }) => {
                   {errors.firstname && (
                     <p
                       className="error"
-                      style={{ color: "red", fontSize: "12px", marginTop: "0" }}
+                      style={{
+                        color: "red",
+                        fontSize: "12px",
+                        marginTop: "0",
+                        marginBottom: "0",
+                      }}
                     >
                       {errors.firstname.message}
                     </p>
@@ -118,7 +123,12 @@ const SignUpPageOne = ({ onContinue }) => {
                   {errors.lastname && (
                     <p
                       className="error"
-                      style={{ color: "red", fontSize: "12px", marginTop: "0" }}
+                      style={{
+                        color: "red",
+                        fontSize: "12px",
+                        marginTop: "0",
+                        marginBottom: "0",
+                      }}
                     >
                       {errors.lastname.message}
                     </p>
@@ -127,33 +137,25 @@ const SignUpPageOne = ({ onContinue }) => {
               </div>
 
               <div className="form-one-div">
-                <select
-                  {...register("currentClass", {
-                    required: "Please select your class",
+                <input
+                  {...register("employmentStatus", {
+                    required: "Please enter your employment status",
                   })}
-                  id="class"
-                >
-                  <option value="">---Select Class---</option>
-                  {classesAvailable.map((el) => (
-                    <option
-                      key={el}
-                      value={el}
-                      index={classesAvailable.indexOf(el)}
-                    >
-                      {el}
-                    </option>
-                  ))}
-                </select>
-                {errors.currentClass && (
+                  type="text"
+                  placeholder="Employment Status"
+                  id="employmentStatus"
+                />
+                {errors.employmentStatus && (
                   <p
                     className="error"
                     style={{
                       color: "red",
                       fontSize: "12px",
                       marginTop: "0.5px",
+                      marginBottom: "0",
                     }}
                   >
-                    {errors.currentClass.message}
+                    {errors.employmentStatus.message}
                   </p>
                 )}
               </div>
@@ -173,6 +175,7 @@ const SignUpPageOne = ({ onContinue }) => {
                       color: "red",
                       fontSize: "12px",
                       marginTop: "0.5px",
+                      marginBottom: "0",
                     }}
                   >
                     {errors.phone.message}
@@ -199,6 +202,7 @@ const SignUpPageOne = ({ onContinue }) => {
                       color: "red",
                       fontSize: "12px",
                       marginTop: "0.5px",
+                      marginBottom: "0",
                     }}
                   >
                     {errors.email.message}
@@ -231,6 +235,7 @@ const SignUpPageOne = ({ onContinue }) => {
                       color: "red",
                       fontSize: "12px",
                       marginTop: "0.5px",
+                      marginBottom: "0",
                     }}
                   >
                     {errors.password.message}

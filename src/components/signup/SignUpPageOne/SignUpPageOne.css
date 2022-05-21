@@ -35,9 +35,11 @@
   width: 40%;
 }
 
-.content-one h2 {
+.signup-pageone .content-one h2 {
   font-size: 4rem;
   font-weight: 700;
+  margin-bottom: 0;
+  margin-top: 0;
 }
 
 .content-one > div:nth-child(2) {

@@ -37,7 +37,7 @@ const SignUpPageTwo = ({ onContinue }) => {
         </div>
 
         <div className="contentTwo content">
-          <h4>Basic School Information</h4>
+          <h4>Basic Government Information</h4>
 
           <div className="form-two">
             <form onSubmit={handleSubmit(onSubmit)}>
