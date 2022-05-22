@@ -100,13 +100,66 @@ const SignUpPageTwo = ({ onContinue }) => {
                   placeholder="Enter work email address"
                 />
               </div>
-              <div>
-                <input
-                  {...register("governmentIDUrl")}
-                  type="file"
-                  placeholder="Click here to upload"
-                />
+              <label>
+                <p className="issued-id">* Government Issued ID</p>
+              </label>
+              <div className="input-file-div">
+                <label for="govID">
+                  <p>Click here to upload</p>
+                  <input
+                    {...register("governmentIDUrl", {
+                      required: "Please upload your government issued ID",
+                    })}
+                    id="govID"
+                    type="file"
+                    accept="image/png, image/jpg, image/gif, image/jpeg"
+                    placeholder="Click here to upload"
+                  />
+                </label>
               </div>
+              {errors.governmentIDUrl && (
+                <p
+                  className="error"
+                  style={{
+                    color: "red",
+                    fontSize: "12px",
+                    marginTop: "0",
+                    marginBottom: "0",
+                  }}
+                >
+                  {errors.governmentIDUrl.message}
+                </p>
+              )}
+              <label>
+                <p className="issued-id">* Work ID Card</p>
+              </label>
+              <div className="input-file-div">
+                <label for="workID">
+                  <p>Click here to upload</p>
+                  <input
+                    {...register("workIDUrl", {
+                      required: "Please upload your workID card",
+                    })}
+                    id="workID"
+                    type="file"
+                    accept="image/png, image/jpg, image/gif, image/jpeg"
+                    placeholder="Click here to upload"
+                  />
+                </label>
+              </div>
+              {errors.workIDUrl && (
+                <p
+                  className="error"
+                  style={{
+                    color: "red",
+                    fontSize: "12px",
+                    marginTop: "0",
+                    marginBottom: "0",
+                  }}
+                >
+                  {errors.workIDUrl.message}
+                </p>
+              )}
               <div>
                 <button type="submit">Next</button>
               </div>

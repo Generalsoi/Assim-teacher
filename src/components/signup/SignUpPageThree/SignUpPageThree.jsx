@@ -82,21 +82,71 @@ const SignUpPageThree = ({ onContinue }) => {
                 </select>
               </div>
               <div>
-                <input
-                  {...register("school")}
-                  type="text"
-                  placeholder="Name of Your School"
-                />
-              </div>
-              <div>
                 <select
-                  {...register("noOfSubjects")}
-                  name="subjects"
-                  id="subjects"
+                  {...register("highestLevelOfEdu", {
+                    required: "Please select highest level of education",
+                  })}
+                  id="lga"
                 >
-                  <option value="subject">No. of subjects offered</option>
+                  <option value="">---Highest Level of Education---</option>
+                  <option value="ssce">SSCE</option>
+                  <option value="Bachelors">Bachelor's degree</option>
+                  <option value="Masters">Masters</option>
+                  <option value="phd">PHD</option>
                 </select>
               </div>
+              {errors.highestLevelOfEdu && (
+                <p
+                  className="error"
+                  style={{ color: "red", fontSize: "12px", marginTop: "0" }}
+                >
+                  {errors.highestLevelOfEdu.message}
+                </p>
+              )}
+              <div>
+                <select
+                  {...register("maritalStatus", {
+                    required: "Please select a valid marital status",
+                  })}
+                  id="lga"
+                >
+                  <option value="">---Marital Status---</option>
+                  <option value="single">Single</option>
+                  <option value="married">Married</option>
+                  <option value="divorced">Divorced</option>
+                </select>
+              </div>
+              {errors.maritalStatus && (
+                <p
+                  className="error"
+                  style={{ color: "red", fontSize: "12px", marginTop: "0" }}
+                >
+                  {errors.maritalStatus.message}
+                </p>
+              )}
+              <div>
+                <select
+                  {...register("title", {
+                    required: "Please select a valid title",
+                  })}
+                  name="title"
+                  id="title"
+                >
+                  <option value="">---Title---</option>
+                  <option value="mr">Mr</option>
+                  <option value="mrs">Mrs</option>
+                  <option value="master">Master</option>
+                  <option value="miss">Miss</option>
+                </select>
+              </div>
+              {errors.title && (
+                <p
+                  className="error"
+                  style={{ color: "red", fontSize: "12px", marginTop: "0" }}
+                >
+                  {errors.title.message}
+                </p>
+              )}
               <div>
                 <button type="submit">Complete</button>
               </div>
