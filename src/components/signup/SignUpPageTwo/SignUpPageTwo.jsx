@@ -109,6 +109,14 @@ const SignUpPageTwo = ({ onContinue }) => {
                   <input
                     {...register("governmentIDUrl", {
                       required: "Please upload your government issued ID",
+                      validate: {
+                        lessThan10MB: (files) =>
+                          files[0]?.size < 10000000 || "Max 10MB",
+                        acceptedFormats: (files) =>
+                          ["image/jpeg", "image/png", "image/gif"].includes(
+                            files[0]?.type
+                          ) || "Only PNG, JPEG e GIF",
+                      },
                     })}
                     id="govID"
                     type="file"
@@ -139,6 +147,14 @@ const SignUpPageTwo = ({ onContinue }) => {
                   <input
                     {...register("workIDUrl", {
                       required: "Please upload your workID card",
+                      validate: {
+                        lessThan10MB: (files) =>
+                          files[0]?.size < 10000000 || "Max 10MB",
+                        acceptedFormats: (files) =>
+                          ["image/jpeg", "image/png", "image/gif"].includes(
+                            files[0]?.type
+                          ) || "Only PNG, JPEG e GIF",
+                      },
                     })}
                     id="workID"
                     type="file"
