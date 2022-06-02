@@ -77,3 +77,76 @@
   border-radius: 4px;
   cursor: pointer;
 }
+
+/* Responsive styling */
+@media screen and (max-width: 450px) {
+  .signup-pagethree {
+    padding: 5% 4%;
+    width: 100%;
+  }
+
+  .signup-pagethree .header img {
+    width: 40%;
+  }
+
+  .signup-pagethree .signupcontents {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .signup-pagethree .signupcontents .content-One {
+    width: 100%;
+    display: none;
+  }
+
+  .signup-pagethree .signupcontents .content-Two {
+    width: 100%;
+    text-align: center;
+  }
+
+  .form-two {
+    padding: 0 7%;
+  }
+
+  .content-Two .form-two div {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 451px) and (max-width: 767px) {
+  .signup-pagethree {
+    padding: 5% 4%;
+    width: 100%;
+  }
+
+  .signup-pagethree .header img {
+    width: 40%;
+  }
+
+  .signup-pagethree .signupcontents {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .signup-pagethree .signupcontents .content-One {
+    width: 100%;
+    display: none;
+  }
+
+  .signup-pagethree .signupcontents .content-Two {
+    width: 100%;
+    text-align: center;
+  }
+
+  .form-two {
+    padding: 0 7%;
+  }
+
+  .content-Two .form-two div {
+    width: 100%;
+  }
+}

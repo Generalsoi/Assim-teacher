@@ -51,3 +51,20 @@
   font-weight: 700;
   font-size: 0.813rem;
 }
+
+/* Responsive styling */
+@media screen and (max-width: 450px) {
+  .complete-signup {
+    padding: 5% 4%;
+    width: 100%;
+  }
+
+  .completed-signup-contents img:first-child {
+    width: 20%;
+    display: none;
+  }
+
+  .completed-signup-contents h2 {
+    font-size: 2rem;
+  }
+}
