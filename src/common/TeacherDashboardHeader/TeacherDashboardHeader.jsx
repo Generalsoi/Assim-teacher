@@ -30,7 +30,7 @@ const TeacherDashboardHeader = () => {
           />
           <div>
             <span>
-              David Chimezie <img src={DropDown} alt="dropdown" />
+              Josephine Eze <img src={DropDown} alt="dropdown" />
             </span>
             <span>SS1</span>
           </div>
