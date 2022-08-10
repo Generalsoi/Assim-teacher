@@ -32,7 +32,7 @@ const TeacherDashboardHeader = () => {
             <span>
               Josephine Eze <img src={DropDown} alt="dropdown" />
             </span>
-            <span>SS1</span>
+            <span>Teacher</span>
           </div>
         </div>
       </div>
