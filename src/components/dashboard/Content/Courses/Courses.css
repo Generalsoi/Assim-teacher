@@ -1,0 +1,135 @@
+.courses_tab {
+    display: flex;
+    margin-top: 1rem;
+
+}
+
+.courses_tab_item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    width: 109px;
+    height: 40px;
+    border-radius: 5px;
+    margin-right: 20px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    color: #8A8A8A;
+    cursor: pointer;
+}
+
+.courses_tab_item_active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    width: 109px;
+    height: 40px;
+    background: #7777F9;
+    border-radius: 5px;
+    margin-right: 20px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.courses_card_wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.courses_card_item {
+    width: 333px;
+    height: 183px;
+    background: #FFFFFF;
+    border-radius: 10px;
+    margin-right: 13px;
+    margin-bottom: 1rem;
+    display: flex;
+    padding: 10px;
+    position: relative;
+}
+
+.courses_card_item img {
+    margin-right: 10px;
+}
+
+.courses_card_item:last-child {
+    margin-right: 0px;
+}
+
+.course_detail h2 {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+.course_detail p {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    color: #8A8A8A;
+    line-height: 19px;
+}
+
+.course_action_btn {
+    margin-top: 2rem;
+}
+
+.delete_btn {
+    width: 80px;
+    height: 33px;
+    background: #E55858;
+    border-radius: 5px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+}
+
+.edit_btn {
+    width: 80px;
+    height: 33px;
+    background: #5D5FEF;
+    border-radius: 5px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    color: #FFFFFF;
+    border: none;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.course_type_img {
+    position: absolute;
+    left: 25%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+@media only screen and (max-width: 768px) {
+   .courses_tab_item{
+    width: 100%;
+   }
+
+   .courses_card_wrapper {
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.courses_card_item {
+    width: 100%;
+}
+  }

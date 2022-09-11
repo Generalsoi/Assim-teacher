@@ -1,84 +1,83 @@
-.main-sidebar .assim-logo {
-  margin: 0 3rem;
+.main-sidebar .assim-logo{
+    margin: 0 3rem;
 }
 
-.sidebar-links {
-  margin-top: 4rem;
+.sidebar-links{
+    margin-top: 4rem;
 }
 
-.sidebar-links ul {
-  list-style-type: none;
+.sidebar-links ul{ 
+    list-style-type: none;
 }
 
-.sidebar-link {
-  display: flex;
-  align-items: center;
-  margin-bottom: 1.3rem;
-  line-height: 24px;
-  color: #8a8a8a;
-  cursor: pointer;
-  text-decoration: none;
-  width: 100%;
-  padding: 0 3rem;
+.sidebar-link{
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.4rem;
+    line-height: 24px;
+    color: #8A8A8A;
+    cursor: pointer;
+    text-decoration: none;
+    width: 100%;
+    padding: 0.4rem 3rem;
 }
 
-.sidebarLink {
-  text-decoration: none;
+.sidebarLink{
+    text-decoration: none;
 }
 
-.sidebar-link p {
-  font-family: "Lato", sans-serif;
-  margin-left: 1rem;
+.sidebar-link p{
+    font-family: 'Lato', sans-serif;
+    margin-left: 1rem;
 }
 
-.sidebar-btns {
-  display: flex;
-  flex-direction: column;
-  margin-top: 6rem;
-  text-align: center;
-  padding: 0 2rem;
+.sidebar-btns{
+    display: flex;
+    flex-direction: column;
+    margin-top: 6rem;
+    text-align: center;
+    padding: 0 2rem;
 }
 
-.upgrade-plan-btn {
-  background: #6363c7;
-  color: #fff;
-  margin-bottom: 1.5rem;
+.upgrade-plan-btn{
+    background: #6363C7;
+    color: #fff;
+    margin-bottom: 1.5rem;
 }
 
-.contact-support-btn {
-  background: #efefff;
-  mix-blend-mode: normal;
-  color: #7a74fc;
-  margin-bottom: 1.5rem;
+.contact-support-btn{
+    background: #EFEFFF;
+    mix-blend-mode: normal;
+    color: #7A74FC;
+    margin-bottom: 1.5rem;
 }
 
-.contact-support-btn,
-.upgrade-plan-btn {
-  font-weight: 700;
-  font-size: 0.813rem;
-  height: 36px;
-  cursor: pointer;
-  border-radius: 4px;
-  border: none;
+.contact-support-btn, .upgrade-plan-btn{
+    font-weight: 700;
+    font-size: 0.813rem;
+    height: 36px;
+    cursor: pointer;
+    border-radius: 4px;
+    border: none;
 }
 
-.sign-out {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  color: #e55858;
+.sign-out{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #E55858;
 }
 
-.sign-out p {
-  font-size: 1rem;
-  margin-left: 0.5rem;
+.sign-out p{
+    font-size: 1rem;
+    margin-left: 0.5rem;
 }
 
-.activeMenu {
-  color: #7777f9;
-  background: #efefff;
-  font-weight: 700;
-  height: 40px;
-  border-left: 4px solid #7777f9;
+.activeMenu{
+    color: #7777F9;
+    background: #EFEFFF;
+    font-weight: 700;
+    height: 40px;
+    border-left: 4px solid #7777F9;
 }
