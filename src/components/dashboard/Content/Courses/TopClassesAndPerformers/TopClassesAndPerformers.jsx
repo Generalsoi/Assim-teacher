@@ -1,6 +1,6 @@
 import React from "react";
 import "./TopClassesAndPerformers.css";
-import PersonIcon from "@mui/icons-material/Person";
+// import PersonIcon from "@mui/icons-material/Person";
 import TopClassOne from "../../../../../assets/images/topclassone.png";
 import TopClassTwo from "../../../../../assets/images/topclasstwo.png";
 import TopClassThree from "../../../../../assets/images/topclassthree.png";
@@ -59,8 +59,6 @@ const TopClassesAndPerformers = () => {
 
           <div className="top-class-item">
 
-           
-
               <div className="top-class-inner-item">
                 <img src={Top} alt="" />
 
@@ -118,10 +116,6 @@ const TopClassesAndPerformers = () => {
                   </div>
                 </div>
               </div>
-
-
-
-           
 
           </div>
         </div>
