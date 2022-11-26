@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import StudentDashboardHeader from "../../../../common/StudentDashboardHeader/StudentDashboardHeader";
 import "./StudDashboard.css";
 import Sidebar from "../../Sidebar/Sidebar";
@@ -10,16 +10,19 @@ import Star from "../../../../assets/images/star.png";
 import User from "../../../../assets/images/user.png";
 
 import Chart from "chart.js";
-import { Bar, HorizontalBar } from "react-chartjs-2";
+import { Bar } from "react-chartjs-2";
 import {
   chartOptions,
   parseOptions,
   chartExample2,
 } from "./chart/charts";
+import axios from "axios";
+import { apiEndpoint } from "../../../../config";
 
 const StudDashboard = () => {
   const [activeMenu, setActiveMenu] = useState("menu1");
   const [open, setOpen] = useState(false);
+  const [userData, setUserData] = useState({})
 
   const handleClick = () => {
     setOpen(!open);
@@ -27,6 +30,27 @@ const StudDashboard = () => {
 
   if (window.Chart) {
     parseOptions(Chart, chartOptions());
+  }
+
+  useEffect(() => {
+    const userInfo = JSON.parse(localStorage.getItem("userInfo"))
+    fetchData(userInfo)
+  }, [])
+
+  const fetchData = async (userInfo) => {
+    try {
+      const response = await axios({
+        method: "GET",
+        url: `${apiEndpoint}users/me`,
+        headers: {
+          "Content-Type": "multipart/form-data",
+          "Authorization": "Bearer " + userInfo.token,
+        },
+      });
+      setUserData(response.data)
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   return (
@@ -41,7 +65,7 @@ const StudDashboard = () => {
 
           <div className="welcome-message">
             <h2>
-              Good morning, <span>Josephine</span>
+              Good morning, <span>{userData.name}</span>
               <img src={Hand} alt="" />
             </h2>
           </div>

@@ -8,9 +8,48 @@ import {
   USER_LOGOUT,
   CLEAR_ERRORS,
   CLEAR_STATE,
+  CREATE_USER_REQUEST,
+  CREATE_USER_SUCCESS,
+  CREATE_USER_FAIL,
 } from "./AuthTypes";
 import axios from "axios";
 import { accessToken, apiEndpoint } from "../../config";
+
+export const createUser = (body) => async (dispatch) => {
+  try {
+    dispatch({
+      type: CREATE_USER_REQUEST
+    });
+
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    body = {
+      ...body,
+      "name": body.firstname + " " + body.lastname,
+      "profileType": "teacher"
+    }
+
+    const { data } = await axios.post(`${apiEndpoint}users?access_token=${accessToken}`, body, config);
+
+    dispatch({
+      type: CREATE_USER_SUCCESS,
+      payload: data,
+    });
+    localStorage.setItem('token', data.token)
+    localStorage.setItem('userId', data.user.id)
+
+  } catch (error) {
+    dispatch({
+      type: CREATE_USER_FAIL,
+      payload:
+        error.response && error.response.data.message
+    });
+  }
+};
 
 export const register = (body) => async (dispatch) => {
   try {
@@ -21,15 +60,24 @@ export const register = (body) => async (dispatch) => {
     const config = {
       headers: {
         "Content-Type": "application/json",
+        "Authorization": `Bearer ${localStorage.getItem('token')}`,
       },
     };
 
-    const { data } = await axios.post(`${apiEndpoint}students?access_token=${accessToken}`, body, config);
+    body = {
+      ...body,
+      "userId": localStorage.getItem('userId')
+    }
+
+    const { data } = await axios.post(`${apiEndpoint}teachers?access_token=${accessToken}`, body, config);
 
     dispatch({
       type: USER_REGISTER_SUCCESS,
       payload: data,
     });
+
+    localStorage.removeItem("token")
+    localStorage.removeItem("userId")
 
   } catch (error) {
     dispatch({
@@ -46,20 +94,14 @@ export const login = (body) => async (dispatch) => {
       type: USER_LOGIN_REQUEST,
     });
 
-    const config = {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
-
-    const { data } = await axios.post(`${apiEndpoint}auth?access_token=${accessToken}`, body, config);
+    const { data } = await axios.post(`${apiEndpoint}auth/new?access_token=${accessToken}`, body);
 
     dispatch({
       type: USER_LOGIN_SUCCESS,
       payload: data,
     });
 
-    localStorage.setItem("userData", JSON.stringify(data));
+    localStorage.setItem("userInfo", JSON.stringify(data));
 
   } catch (error) {
     dispatch({

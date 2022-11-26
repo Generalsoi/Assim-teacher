@@ -1,11 +1,15 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import "./SignIn.css";
 import Logo from "../../assets/images/Logo.png";
+import axios from "axios";
+import { accessToken, apiEndpoint } from "../../config";
+import { toast } from "react-toastify";
 
 const SignIn = () => {
+  const navigate = useNavigate();
   const {
     register,
     formState: { errors },
@@ -13,6 +17,37 @@ const SignIn = () => {
   } = useForm({
     criteriaMode: "all",
   });
+
+  const onSubmit = async (data) => {
+    const user = {
+      "email": data.email,
+      "password": data.password
+    };
+    try {
+      const response = await axios({
+        method: 'post',
+        url: `${apiEndpoint}auth/new?access_token=${accessToken}`,
+        data: user,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+      if (response.data.user.profileType !== "teacher") {
+        toast.error("Invalid User Type")
+      } else {
+        if (response.data) {
+          localStorage.setItem("userInfo", JSON.stringify(response.data));
+          navigate("/dashboard")
+        } else {
+          toast.error("Invalid Login attempt")
+        }
+      }
+
+      // response.data ? navigate("/dashboard") : console.log("Invalid Login attempt")
+    } catch (error) {
+      console.log(error)
+    }
+  };
 
   return (
     <div className="sign-in-page">
@@ -22,7 +57,7 @@ const SignIn = () => {
         <p className="info">Welcome back! Please enter your details</p>
 
         <div className="signin-form">
-          <form onSubmit={handleSubmit()}>
+          <form onSubmit={handleSubmit(onSubmit)}>
             <div className="signin-form-div">
               <label htmlFor="">Email</label>
               <input
@@ -58,12 +93,6 @@ const SignIn = () => {
                   minLength: {
                     value: 8,
                     message: "Your password must exceed 8 characters",
-                  },
-                  pattern: {
-                    value:
-                      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d](?=.*?[#?!.,@$%^&*-]).{8,}$/,
-                    message:
-                      "Your password must include at least one lowercase letter, one uppercase letter, one number and one special character",
                   },
                 })}
                 type="password"

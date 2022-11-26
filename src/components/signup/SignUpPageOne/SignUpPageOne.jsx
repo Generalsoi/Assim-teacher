@@ -7,6 +7,9 @@ import { useForm } from "react-hook-form";
 import "./SignUpPageOne.css";
 import Logo from "../../../assets/images/Logo.png";
 import Arrow from "../../../assets/images/arrowicon.png";
+import { useDispatch, useSelector } from "react-redux";
+import { clearErrors, createUser } from "../../../redux/auth/AuthActions";
+import { toast } from 'react-toastify';
 // import dataObject from "../data.js";
 
 const SignUpPageOne = ({ onContinue }) => {
@@ -29,10 +32,14 @@ const SignUpPageOne = ({ onContinue }) => {
   //   password: yup.string().required().min(6),
   // });
 
+  const dispatch = useDispatch()
+
+  const { loading, error, success, createdUser } = useSelector((state) => state.userCreate);
+
   const onSubmit = (data) => {
+    //dispatch action to create user here
+    dispatch(createUser(data))
     onContinue(data, 1);
-    // dataObject.push(data);
-    // navigate("/studentSignUpPageTwo");
   };
 
   return (
@@ -218,12 +225,6 @@ const SignUpPageOne = ({ onContinue }) => {
                     minLength: {
                       value: 8,
                       message: "Your password must exceed 8 characters",
-                    },
-                    pattern: {
-                      value:
-                        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d](?=.*?[#?!.,@$%^&*-]).{8,}$/,
-                      message:
-                        "Your password must include at least one lowercase letter, one uppercase letter, one number and one special character",
                     },
                   })}
                   type="password"

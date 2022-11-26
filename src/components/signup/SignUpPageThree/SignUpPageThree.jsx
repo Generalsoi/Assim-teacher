@@ -74,6 +74,8 @@ const SignUpPageThree = ({ onContinue }) => {
               <div>
                 <select {...register("stateOfOrigin")} id="origin">
                   <option value="origin">State of Origin</option>
+                  <option value="enugu">Enugu state</option>
+                  <option value="lagos">Lagos state</option>
                 </select>
               </div>
               <div>

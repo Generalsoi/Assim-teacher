@@ -7,9 +7,7 @@ import SignUpPageThree from "./SignUpPageThree/SignUpPageThree";
 import BackdropLoader from '../Loader/BackdropLoader';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { clearErrors, clearState, register, login } from '../../redux/auth/AuthActions';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { register, login } from '../../redux/auth/AuthActions';
 
 const Signup = () => {
   const dispatch = useDispatch();
@@ -34,36 +32,26 @@ const Signup = () => {
 
   const [step, setStep] = useState(1);
 
-  const { loading, error, success } = useSelector((state) => state.userRegister);
+  const { loading } = useSelector((state) => state.userRegister);
 
-  React.useEffect(() => {
-    if (error) {
-      toast.error(error);
-      dispatch(clearErrors());
-    }
+  const onContinue = async (input, index) => {
+    setData({ ...data, ...input });
 
-    if (success) {
-      dispatch(clearState());
-      // login user
-      dispatch(login(data.email, data.password));
+    if (index === 3) {
+      // submit to server
+      dispatch(register(data));
+
+      //login user
+      dispatch(login(data));
 
       // navigate to complete signup page
       setTimeout(() => {
         navigate("/completeSignUp");
       }, 1000);
-    }
-  }, [success, loading, error, dispatch, navigate, data]);
 
-  const onContinue = async (input, index) => {
-    setData({ ...data, ...input });
-
-    if (step === 3) {
-      // submit to server
-      dispatch(register(data));
     }
     setStep(index + 1);
   };
-  console.log(data);
   return (
     <>
       {loading && <BackdropLoader />}
