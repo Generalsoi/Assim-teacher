@@ -11,35 +11,35 @@ import Paper from "@mui/material/Paper";
 import axios from "axios";
 import { apiEndpoint } from "../../../../../config";
 import { toast } from "react-toastify";
+import { useSelector } from "react-redux";
+import useAxiosGet from "../../../../../customHooks/useAxiosGet";
 
 const MyDetails = () => {
   const [firstname, setFirstname] = useState("")
   const [lastname, setLastname] = useState("")
   const [email, setEmail] = useState("")
 
-  useEffect(() => {
-    const userInfo = JSON.parse(localStorage.getItem("userInfo"))
-    fetchData(userInfo)
-  }, [])
+  const { userData } = useSelector((state) => state.userLogin);
 
-  const fetchData = async (userInfo) => {
-    try {
-      const response = await axios({
-        method: "GET",
-        url: `${apiEndpoint}users/me`,
-        headers: {
-          "Content-Type": "multipart/form-data",
-          "Authorization": "Bearer " + userInfo.token,
-        },
-      });
-      const splitName = response.data.name.split(" ")
+  useEffect(() => {
+    if (userData === null) {
+      window.location.href = "/sign-in";
+    }
+  }, [userData]);
+  const { response } = useAxiosGet({
+    method: 'get',
+    url: `users/me`,
+  });
+
+  React.useEffect(() => {
+    if (response) {
+      console.log(response)
+      const splitName = response.name.split(" ")
       setFirstname(splitName[0])
       setLastname(splitName[1])
-      setEmail(response.data.email)
-    } catch (error) {
-      console.log(error)
+      setEmail(response.email)
     }
-  }
+  }, [response]);
 
   const handleProfileUpdate = async (event) => {
     event.preventDefault();
@@ -52,6 +52,7 @@ const MyDetails = () => {
       "email": email,
       "name": firstname + " " + lastname,
     };
+
     try {
       await axios({
         method: 'put',

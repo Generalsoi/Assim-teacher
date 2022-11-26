@@ -101,6 +101,10 @@ export const login = (body) => async (dispatch) => {
       payload: data,
     });
 
+    const token = data.token;
+
+    localStorage.setItem("token", token);
+
     localStorage.setItem("userInfo", JSON.stringify(data));
 
   } catch (error) {
