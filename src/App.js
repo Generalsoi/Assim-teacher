@@ -9,6 +9,7 @@ import Signup from "./components/signup/Signup";
 import CompleteSignUp from "./components/signup/CompleteSignUp/CompleteSignUp";
 import SignIn from "./components/SignIn/SignIn";
 import UploadCourse from "./components/dashboard/Content/Courses/UploadCourse/UploadCourse";
+import UploadVideo from "./components/dashboard/UploadVideo/UploadVideo";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/dashboard" element={<StudDashboard />} />
         <Route path="/courses" element={<Courses />} />
         <Route path="/upload-course" element={<UploadCourse />} />
+        <Route path="/upload-video" element={<UploadVideo />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/schedule" element={<Schedule />} />
         <Route path="/sign-in" element={<SignIn />} />
