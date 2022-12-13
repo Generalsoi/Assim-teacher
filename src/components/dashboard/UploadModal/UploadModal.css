@@ -10,8 +10,16 @@
     margin: 0px;
     z-index: 9999999;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.cancelModal {
+    position: absolute;
+    top: 16%;
+    right: 39%;
+    cursor: pointer;
 }
 
 .upload_div {
