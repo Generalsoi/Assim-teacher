@@ -1,0 +1,89 @@
+.upload_course_message {
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.upload_course_message h2 {
+    font-size: 16px;
+}
+
+.upload_course_area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.upload_course_body {
+    width: 70%;
+    background: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem 1rem;
+    border-radius: 50px;
+}
+
+.form_div {
+    margin-bottom: 1.5rem;
+}
+
+.form_div h6 {
+    margin-bottom: 0.5rem;
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    color: #555555;
+}
+
+.fileUploadArea {
+    background: rgba(18, 18, 18, 0.1);
+    border: 1px dashed #121212;
+    border-radius: 10px;
+    padding: 1rem;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+}
+
+.fileUploadArea p {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    color: #121212;
+}
+
+.form_div input {
+    background: rgba(18, 18, 18, 0.1);
+    padding: 1rem;
+    border-radius: 10px;
+    width: 100%;
+    border: none;
+    outline: none;
+}
+
+.form_div textarea {
+    background: rgba(18, 18, 18, 0.1);
+    padding: 1rem;
+    border-radius: 10px;
+    width: 100%;
+    border: none;
+    outline: none;
+}
+
+.submitBtn {
+    float: right;
+    margin-top: 1rem;
+}
+
+.submitBtn button {
+    background: #7777F9;
+    border-radius: 10px;
+    padding: 0.8rem;
+    border: none;
+    outline: none;
+    color: #FFFFFF;
+    cursor: pointer;
+}
