@@ -64,7 +64,6 @@
 .sign-out{
     display: flex;
     align-items: center;
-    justify-content: center;
     cursor: pointer;
     color: #E55858;
 }

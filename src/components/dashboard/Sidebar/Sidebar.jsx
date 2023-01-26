@@ -23,6 +23,10 @@ const Sidebar = (props) => {
     (current_path === "/schedule" && "activeMenu") + " sidebar-link";
   const handleMenu4 =
     (current_path === "/settings" && "activeMenu") + " sidebar-link";
+  const handleMenu5 =
+    (current_path === "/classes" && "activeMenu") + " sidebar-link";
+  const handleMenu6 =
+    (current_path === "/select-class" && "activeMenu") + " sidebar-link";
 
   const handleLogout = () => {
     localStorage.removeItem("userInfo")
@@ -46,8 +50,8 @@ const Sidebar = (props) => {
             </li>
           </Link>
 
-          <Link to="/courses">
-            <li className={handleMenu2}>
+          <Link to="/classes">
+            <li className={handleMenu5}>
               <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fillRule="evenodd" clipRule="evenodd" d="M14.9658 25.4603C10.917 25.4603 7.45825 24.8478 7.45825 22.3953C7.45825 19.9428 10.8945 17.8078 14.9658 17.8078C19.0145 17.8078 22.4733 19.9228 22.4733 22.374C22.4733 24.8253 19.037 25.4603 14.9658 25.4603Z" stroke="#8A8A8A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 <path fillRule="evenodd" clipRule="evenodd" d="M14.9656 14.3109C17.6231 14.3109 19.7781 12.1571 19.7781 9.49963C19.7781 6.84213 17.6231 4.68713 14.9656 4.68713C12.3081 4.68713 10.1531 6.84213 10.1531 9.49963C10.1456 12.1471 12.2831 14.3021 14.9318 14.3109H14.9656Z" stroke="#8A8A8A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -57,7 +61,33 @@ const Sidebar = (props) => {
                 <path d="M6.25226 16.9305C4.05976 16.9305 2.18726 18.4168 2.18726 19.7443C2.18726 20.5255 2.83351 21.3768 3.81476 21.6068" stroke="#8A8A8A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
 
+              <p>Classes</p>
+            </li>
+          </Link>
+
+          <Link to="/courses">
+            <li className={handleMenu2}>
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8.21375 11.7525V20.3275" stroke="#8A8A8A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M14.0475 7.64875V20.3275" stroke="#8A8A8A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M19.7863 16.2837V20.3275" stroke="#8A8A8A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                <path fillRule="evenodd" clipRule="evenodd" d="M19.8571 1.5H8.14286C4.05952 1.5 1.5 4.3901 1.5 8.48145V19.5186C1.5 23.6099 4.04762 26.5 8.14286 26.5H19.8571C23.9524 26.5 26.5 23.6099 26.5 19.5186V8.48145C26.5 4.3901 23.9524 1.5 19.8571 1.5Z" stroke="#8A8A8A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+
               <p>Courses</p>
+            </li>
+          </Link>
+
+          <Link to="/select-class">
+            <li className={handleMenu6}>
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8.21375 11.7525V20.3275" stroke="#8A8A8A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M14.0475 7.64875V20.3275" stroke="#8A8A8A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M19.7863 16.2837V20.3275" stroke="#8A8A8A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                <path fillRule="evenodd" clipRule="evenodd" d="M19.8571 1.5H8.14286C4.05952 1.5 1.5 4.3901 1.5 8.48145V19.5186C1.5 23.6099 4.04762 26.5 8.14286 26.5H19.8571C23.9524 26.5 26.5 23.6099 26.5 19.5186V8.48145C26.5 4.3901 23.9524 1.5 19.8571 1.5Z" stroke="#8A8A8A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+
+              <p>Assignments</p>
             </li>
           </Link>
 

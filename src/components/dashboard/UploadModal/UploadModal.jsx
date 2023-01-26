@@ -66,7 +66,7 @@ const UploadModal = () => {
                                     </div>
                                 </div>
                             </Link>
-                            <Link to="/upload-course">
+                            <Link to="/new-class">
                                 <div className="upload_body_div">
                                     <div className="upload_body_icon">
                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -83,8 +83,8 @@ const UploadModal = () => {
                                     </div>
                                     <div className="upload_body_content">
                                         <div className="upload_content_left">
-                                            <h4>Document</h4>
-                                            <p>Upload your document</p>
+                                            <h4>Class</h4>
+                                            <p>Create new class</p>
                                         </div>
                                         <div className="upload_content_right">
                                             <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -116,7 +116,7 @@ const UploadModal = () => {
                                     </div>
                                 </div>
                             </Link>
-                            <Link to="/upload-course">
+                            <Link to="/new-assignment">
                                 <div className="upload_body_div">
                                     <div className="upload_body_icon">
                                         <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
