@@ -8,6 +8,7 @@ import useAxiosGetWithoutToken from "../../../../customHooks/useAxiosGetWithoutT
 import { accessToken } from "../../../../config";
 import { getPostedDate, shortenText } from "../../../../functions";
 import { Link } from "react-router-dom";
+import BackdropLoader from "../../../Loader/BackdropLoader";
 
 const SelectClass = () => {
   const [activeMenu, setActiveMenu] = useState("menu1");
@@ -22,7 +23,7 @@ const SelectClass = () => {
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
   const ownerId = userInfo.user.id;
 
-  const { response } = useAxiosGetWithoutToken({
+  const { response, loading } = useAxiosGetWithoutToken({
     method: "get",
     url: "classes?ownerId=" + ownerId + "&access_token=" + accessToken,
   });
@@ -35,6 +36,7 @@ const SelectClass = () => {
 
   return (
     <>
+    {loading && <BackdropLoader />}
       <div className="dashboard">
         <div className={open ? "sidebar-mobile open" : "sidebar"}>
           <Sidebar activeMenu={activeMenu} setActiveMenu={setActiveMenu} />

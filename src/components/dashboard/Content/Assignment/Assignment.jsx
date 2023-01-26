@@ -8,6 +8,7 @@ import { useLocation } from "react-router-dom";
 import useAxiosGetWithoutToken from "../../../../customHooks/useAxiosGetWithoutToken";
 import { accessToken } from "../../../../config";
 import { formatDate, getPostedDate, shortenText } from "../../../../functions";
+import BackdropLoader from '../../../Loader/BackdropLoader';
 
 const Assignment = () => {
   const [activeMenu, setActiveMenu] = useState("menu1");
@@ -23,7 +24,7 @@ const Assignment = () => {
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
   const tutor = userInfo.user.name;
 
-  const { response } = useAxiosGetWithoutToken({
+  const { response, loading } = useAxiosGetWithoutToken({
     method: "get",
     url: "documents?classId=" + classId + "&access_token=" + accessToken,
   });
@@ -35,6 +36,7 @@ const Assignment = () => {
   }, [response]);
   return (
     <>
+      {loading && <BackdropLoader />}
       <div className="dashboard">
         <div className={open ? "sidebar-mobile open" : "sidebar"}>
           <Sidebar activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
