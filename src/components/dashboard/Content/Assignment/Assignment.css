@@ -1,0 +1,177 @@
+.asignment-item-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.assignment-item {
+  padding: 1.5rem;
+  background: #ffffff;
+  box-shadow: 0px 8.95px 13.425px -4.475px rgba(184, 184, 210, 0.2);
+  border-radius: 13.425px;
+  width: 18.5rem;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+}
+
+.assignment-item:last-child {
+  margin-right: 0;
+}
+
+.asignment-item-top {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.asignment-item-top svg {
+  margin-right: 1rem;
+}
+
+.assignment-subject-tutor h5 {
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+}
+
+.assignment-subject-tutor p {
+  font-weight: 300;
+  font-size: 0.8rem;
+  color: #9e9e9e;
+}
+
+.assignment-desc {
+  margin-bottom: 1.5rem;
+}
+
+.assignment-desc p {
+  font-weight: 400;
+  font-size: 0.75rem;
+  color: #c1c1ce;
+  margin-bottom: 0.4rem;
+}
+
+.assignment-desc h6 {
+  font-weight: 600;
+  font-size: 0.75rem;
+}
+
+.assingment-item-body {
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.assingment-dates p {
+  font-weight: 400;
+  font-size: 0.75rem;
+  color: #c1c1ce;
+  margin-bottom: 0.4rem;
+}
+
+.assingment-dates h6 {
+  font-weight: 600;
+  font-size: 0.7rem;
+}
+
+.assignment-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.assigment-status {
+  width: 50%;
+  border-radius: 6.5px;
+  padding: 0.5rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+.submitted {
+  background: #f3e4ff;
+}
+
+.submitted p {
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: #8f00ff;
+}
+
+.unattended {
+  background: #e8eff6;
+}
+
+.unattended p {
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: #121212;
+}
+
+.classess-div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.select-class {
+  width: 23%;
+  padding: 1rem 1rem;
+  margin-right: 1.5%;
+  margin-bottom: 2%;
+  border: 2px dashed rgb(108, 97, 97);
+  border-radius: 20px;
+  cursor: pointer;
+  height: 120px;
+}
+
+.select-class:hover{
+    background: #e2e2f2;
+    transition: 0.5;
+}
+
+.select-class:nth-child(4n) {
+  margin-right: 0;
+}
+
+.select-class p {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #8f00ff;
+  margin-bottom: 0.6rem;
+}
+
+.select-class h4 {
+  font-weight: 500;
+  font-size: 0.8rem;
+  color: #11111e;
+  margin-bottom: 1rem;
+}
+
+.select-class h5 {
+  font-weight: 600;
+  font-size: 0.7rem;
+  color: #8f00ff;
+}
+
+@media screen and (max-width: 450px) {
+  .assignment-item{
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 2rem;
+  }
+  .classess-div {
+    flex-direction: row;
+  }
+
+  .select-class {
+    width: 45%;
+    margin-right: 10%;
+    margin-bottom: 10%;
+  }
+
+  .select-class:nth-child(2n){
+    margin-right: 0;
+  }
+}

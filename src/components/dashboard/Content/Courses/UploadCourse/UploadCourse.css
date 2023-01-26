@@ -26,6 +26,7 @@
 
 .form_div {
     margin-bottom: 1.5rem;
+    width: 500px;
 }
 
 .form_div h6 {
@@ -55,16 +56,7 @@
     color: #121212;
 }
 
-.form_div input {
-    background: rgba(18, 18, 18, 0.1);
-    padding: 1rem;
-    border-radius: 10px;
-    width: 100%;
-    border: none;
-    outline: none;
-}
-
-.form_div textarea {
+.form_div input, textarea, select {
     background: rgba(18, 18, 18, 0.1);
     padding: 1rem;
     border-radius: 10px;
