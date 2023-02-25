@@ -1,30 +1,34 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
-import "./UploadModal.css"
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import "./UploadModal.css";
 
 const UploadModal = () => {
-    const [modalClose, setModalClose] = useState(true)
+    const [modalClose, setModalClose] = useState(true);
     const closeModal = () => {
-        setModalClose(false)
-    }
+        setModalClose(!modalClose);
+    };
     return (
         <>
             {modalClose &&
                 <div className='divPosition'>
-                    <div className='cancelModal' onClick={closeModal}>
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="0.5" y="0.5" width="23" height="23" rx="11.5" fill="#F8F7FB" />
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M11.1919 12L8.16737 8.97549C7.94421 8.75233 7.94421 8.39052 8.16737 8.16737C8.39052 7.94421 8.75233 7.94421 8.97549 8.16737L12 11.1919L15.0245 8.16737C15.2477 7.94421 15.6095 7.94421 15.8326 8.16737C16.0558 8.39052 16.0558 8.75233 15.8326 8.97549L12.8081 12L15.8326 15.0245C16.0558 15.2477 16.0558 15.6095 15.8326 15.8326C15.6095 16.0558 15.2477 16.0558 15.0245 15.8326L12 12.8081L8.97549 15.8326C8.75233 16.0558 8.39052 16.0558 8.16737 15.8326C7.94421 15.6095 7.94421 15.2477 8.16737 15.0245L11.1919 12Z" fill="#667085" />
-                            <rect x="0.5" y="0.5" width="23" height="23" rx="11.5" stroke="#EAECF0" />
-                        </svg>
-                    </div>
+
                     <div className="upload_div">
                         <div className="upload_header">
-                            <h3>Upload</h3>
-                            <p>Choose what you want to upload</p>
+                            <div>
+                                <h3>Upload</h3>
+                                <p>Choose what you want to upload</p>
+                            </div>
+
+                            <div className='cancelModal' onClick={closeModal}>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="0.5" y="0.5" width="23" height="23" rx="11.5" fill="#F8F7FB" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M11.1919 12L8.16737 8.97549C7.94421 8.75233 7.94421 8.39052 8.16737 8.16737C8.39052 7.94421 8.75233 7.94421 8.97549 8.16737L12 11.1919L15.0245 8.16737C15.2477 7.94421 15.6095 7.94421 15.8326 8.16737C16.0558 8.39052 16.0558 8.75233 15.8326 8.97549L12.8081 12L15.8326 15.0245C16.0558 15.2477 16.0558 15.6095 15.8326 15.8326C15.6095 16.0558 15.2477 16.0558 15.0245 15.8326L12 12.8081L8.97549 15.8326C8.75233 16.0558 8.39052 16.0558 8.16737 15.8326C7.94421 15.6095 7.94421 15.2477 8.16737 15.0245L11.1919 12Z" fill="#667085" />
+                                    <rect x="0.5" y="0.5" width="23" height="23" rx="11.5" stroke="#EAECF0" />
+                                </svg>
+                            </div>
                         </div>
                         <div className="upload_body">
-                            <Link to="/upload-course">
+                            {/* <Link to="/upload-course">
                                 <div className="upload_body_div">
                                     <div className="upload_body_icon">
                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -43,30 +47,9 @@ const UploadModal = () => {
                                         </div>
                                     </div>
                                 </div>
-                            </Link>
+                            </Link> */}
 
-                            <Link to="/upload-video">
-                                <div className="upload_body_div">
-                                    <div className="upload_body_icon">
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M4.86667 6H14.1333C15.1643 6 16 6.76751 16 7.71429V10.2L21 7V17L16 13.8V16.2857C16 17.2325 15.1643 18 14.1333 18H4.86667C3.83574 18 3 17.2325 3 16.2857V7.71429C3 6.76751 3.83574 6 4.86667 6Z" stroke="#7777F9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M8 6V18" stroke="#7777F9" stroke-width="2" />
-                                        </svg>
-                                    </div>
-                                    <div className="upload_body_content">
-                                        <div className="upload_content_left">
-                                            <h4>Video</h4>
-                                            <p>Upload your videos</p>
-                                        </div>
-                                        <div className="upload_content_right">
-                                            <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M5.17205 6.99999L0.222046 2.04999L1.63605 0.635986L8.00005 6.99999L1.63605 13.364L0.222046 11.95L5.17205 6.99999Z" fill="#3F3F44" fill-opacity="0.3" />
-                                            </svg>
-                                        </div>
-                                    </div>
-                                </div>
-                            </Link>
-                            <Link to="/new-class">
+                            <Link to="/new-class" onClick={closeModal}>
                                 <div className="upload_body_div">
                                     <div className="upload_body_icon">
                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -94,7 +77,30 @@ const UploadModal = () => {
                                     </div>
                                 </div>
                             </Link>
-                            <Link to="/upload-course">
+
+                            <Link to="/upload-video" onClick={closeModal}>
+                                <div className="upload_body_div">
+                                    <div className="upload_body_icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M4.86667 6H14.1333C15.1643 6 16 6.76751 16 7.71429V10.2L21 7V17L16 13.8V16.2857C16 17.2325 15.1643 18 14.1333 18H4.86667C3.83574 18 3 17.2325 3 16.2857V7.71429C3 6.76751 3.83574 6 4.86667 6Z" stroke="#7777F9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M8 6V18" stroke="#7777F9" stroke-width="2" />
+                                        </svg>
+                                    </div>
+                                    <div className="upload_body_content">
+                                        <div className="upload_content_left">
+                                            <h4>Video</h4>
+                                            <p>Upload your videos</p>
+                                        </div>
+                                        <div className="upload_content_right">
+                                            <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M5.17205 6.99999L0.222046 2.04999L1.63605 0.635986L8.00005 6.99999L1.63605 13.364L0.222046 11.95L5.17205 6.99999Z" fill="#3F3F44" fill-opacity="0.3" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </Link>
+
+                            {/* <Link to="/upload-course">
                                 <div className="upload_body_div">
                                     <div className="upload_body_icon">
                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -115,8 +121,9 @@ const UploadModal = () => {
                                         </div>
                                     </div>
                                 </div>
-                            </Link>
-                            <Link to="/new-assignment">
+                            </Link> */}
+
+                            <Link to="/new-assignment" onClick={closeModal}>
                                 <div className="upload_body_div">
                                     <div className="upload_body_icon">
                                         <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -142,7 +149,7 @@ const UploadModal = () => {
                 </div>
             }
         </>
-    )
-}
+    );
+};
 
-export default UploadModal
+export default UploadModal;

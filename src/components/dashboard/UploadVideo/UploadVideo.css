@@ -1,0 +1,17 @@
+.upload_web{
+    display: flex;
+}
+
+.upload_mobile{
+    display: none;
+}
+
+@media screen and (max-width: 450px) {
+    .upload_web{
+        display: none;
+    }
+
+    .upload_mobile{
+        display: flex;
+    }
+  }

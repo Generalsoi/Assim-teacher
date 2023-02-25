@@ -73,14 +73,14 @@ const StudDashboard = () => {
           <div className="stats">
             <p>Statistics</p>
 
-            <div className="visits">
+            {/* <div className="visits">
               <p>Course visit </p><span className="dots"></span>
               <select>
                 <option value="">Today</option>
                 <option value="">Today</option>
                 <option value="">Today</option>
               </select>
-            </div>
+            </div> */}
           </div>
 
           <div className="chart_div">

@@ -9,6 +9,8 @@ import { accessToken } from "../../../../config";
 import { getPostedDate, shortenText } from "../../../../functions";
 import { Link } from "react-router-dom";
 import BackdropLoader from "../../../Loader/BackdropLoader";
+import PersonIcon from "@mui/icons-material/Person";
+import ClassOneImg from "../../../../assets/images/classone.png";
 
 const SelectClass = () => {
   const [activeMenu, setActiveMenu] = useState("menu1");
@@ -22,6 +24,7 @@ const SelectClass = () => {
 
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
   const ownerId = userInfo.user.id;
+  const tutor = userInfo.user.name;
 
   const { response, loading } = useAxiosGetWithoutToken({
     method: "get",
@@ -36,7 +39,7 @@ const SelectClass = () => {
 
   return (
     <>
-    {loading && <BackdropLoader />}
+      {loading && <BackdropLoader />}
       <div className="dashboard">
         <div className={open ? "sidebar-mobile open" : "sidebar"}>
           <Sidebar activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
@@ -51,19 +54,26 @@ const SelectClass = () => {
             <br></br>
 
             <div className="classess-div">
-              {recentClassContents.map((content) => (
-                <Link
-                  to={`/assignments?class=${content.id}`}
-                  className="select-class"
-                  key={content.id}
-                >
-                  <div>
-                    <p>{shortenText(content.name, 15)}</p>
-                    <h4>{shortenText(content.description, 35)}</h4>
-                    <h5>{getPostedDate(content.createdAt)}</h5>
-                  </div>
-                </Link>
-              ))}
+              <div className="single-classes">
+                {recentClassContents.map((content) => (
+
+                  <Link to={`/assignments?class=${content.id}`} key={content.id} className="single-class" >
+                    <div className="class-image">
+                      <img src={ClassOneImg} alt={content.name} />
+                    </div>
+                    <h5 className="class-title">{shortenText(content.name, 15)}</h5>
+                    <div className="class-tutor">
+                      <div>
+                        <PersonIcon className="person-icon" />
+                        <p className="class-tutor-name">{shortenText(tutor, 10)}</p>
+                      </div>
+                      <div className="class-length">
+                        <p>{getPostedDate(content.createdAt)}</p>
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
         </div>

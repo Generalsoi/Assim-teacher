@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import StudentDashboardHeader from "../../../../common/StudentDashboardHeader/StudentDashboardHeader";
 import Sidebar from "../../Sidebar/Sidebar";
-import UploadImage from "../../../../assets/images/uploadArea.svg";
 import MenuIcon from "@mui/icons-material/Menu";
 import Logo from "../../../../assets/images/Logo.png";
 import "./Assignment.css";
@@ -10,6 +9,7 @@ import { accessToken } from "../../../../config";
 import useAxiosPost from "../../../../customHooks/useAxiosPost";
 import BackdropLoader from "../../../Loader/BackdropLoader";
 import useAlert from "../../../../customHooks/useAlert";
+import SimpleFileUpload from 'react-simple-file-upload';
 
 const NewAssignment = () => {
   const alert = useAlert();
@@ -18,14 +18,10 @@ const NewAssignment = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [classId, setClassId] = useState("");
-  const hiddenFileInput = React.useRef(null);
+  const [fileUrl, setFileUrl] = useState("");
 
   const handleClick = () => {
     setOpen(!open);
-  };
-
-  const handleFlieClick = (event) => {
-    hiddenFileInput.current.click();
   };
 
   const [recentClassContents, setRecentClassContents] = useState([]);
@@ -53,6 +49,7 @@ const NewAssignment = () => {
       name,
       description,
       classId,
+      fileUrl,
     }),
   });
   const handleSubmit = (e) => {
@@ -61,7 +58,7 @@ const NewAssignment = () => {
   };
   useEffect(() => {
     if (error) {
-      alert("Error", error, "error", "Ok", () => {});
+      alert("Error", error, "error", "Ok", () => { });
     }
     if (success) {
       alert("Success", "Asignment Created Successfully", "success", "Ok", () => {
@@ -69,6 +66,11 @@ const NewAssignment = () => {
       });
     }
   }, [error, alert, success]);
+
+  const handleFile = (url) => {
+    setFileUrl(url);
+  };
+
 
   return (
     <>
@@ -88,22 +90,30 @@ const NewAssignment = () => {
               <div className="upload_course_body">
                 <form onSubmit={handleSubmit}>
                   <div className="upload_course_form">
-                    <div className="form_div" onClick={handleFlieClick}>
-                      <h6>Upload File</h6>
-                      <div className="fileUploadArea">
-                        <h4>JPG, PNG, GIF, SVG, WEBM, MP3, MP4. Max 100mb.</h4>
-                        <div className="uploadImage">
-                          <img src={UploadImage} alt="Assim" />
-                        </div>
-                        <p>Drag and Drop File </p>
-                        <p>or browse media on your device</p>
-                      </div>
-                      <input
-                        type="file"
-                        ref={hiddenFileInput}
-                        style={{ display: "none" }}
+
+                    <div className="upload_web">
+                      <SimpleFileUpload
+                        apiKey="7bf4c18d68525050ba347ff1ccf39e6c"
+                        onSuccess={handleFile}
+                        preview={true}
+                        width="490"
+                        height="200"
                       />
                     </div>
+
+                    <div className="upload_mobile">
+                      <SimpleFileUpload
+                        apiKey="7bf4c18d68525050ba347ff1ccf39e6c"
+                        onSuccess={handleFile}
+                        preview={true}
+                        width="300"
+                        height="100"
+                      />
+                    </div>
+
+                    <br />
+                    <br />
+
                     <div className="form_div">
                       <h6>Title</h6>
                       <input
@@ -146,7 +156,10 @@ const NewAssignment = () => {
                     </div>
                   </div>
                   <div className="submitBtn">
-                    <button type="submit">Create Assingment</button>
+                    <button type="submit" 
+                       disabled={classId === "" || description === "" || name === "" || fileUrl === "" || ownerId === "" ? true : false}
+                       style={{ backgroundColor: classId === "" || description === "" || name === "" || fileUrl === "" || ownerId === "" ? "#ccc" : "#7777F9" }}
+                    >Create Assingment</button>
                   </div>
                 </form>
               </div>

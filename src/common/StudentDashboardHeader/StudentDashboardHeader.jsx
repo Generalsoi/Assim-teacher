@@ -32,7 +32,7 @@ const StudentDashboardHeader = () => {
   }, [response]);
 
   const openModal = () => {
-    setUploadModal(true)
+    setUploadModal(!uploadModalDiv)
   }
 
   return (

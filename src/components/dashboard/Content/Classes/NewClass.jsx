@@ -39,10 +39,10 @@ const NewClass = () => {
   };
   useEffect(() => {
     if (error) {
-      alert("Error", error, "error", "Ok", () => {});
+      alert("Error", error, "error", "Ok", () => { });
     }
     if (success) {
-      alert("Success", success, "success", "Ok", () => {
+      alert("Success", "Class Created Successfully", "success", "Ok", () => {
         window.location.href = "/classes";
       });
     }

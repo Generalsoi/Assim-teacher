@@ -1,33 +1,47 @@
 .divPosition {
     position: fixed;
-    background: rgb(0 0 0 / 80%);
-    top: 0px;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-    margin: 0px;
-    z-index: 9999999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 14, 41, 0.7);
+    backdrop-filter: blur(9px);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    z-index: 100;
+    transition: all 0.3s ease-in-out;
+    padding: 0 10px;
 }
 
 .cancelModal {
-    position: absolute;
-    top: 16%;
-    right: 39%;
     cursor: pointer;
 }
 
 .upload_div {
+    width: 400px;
+    height: auto;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease-in-out;
+}
+
+/* .upload_div {
     background: #FFFFFF;
     border-radius: 16px;
     padding: 15px;
     width: 350px;
-}
+} */
 
 .upload_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
     margin-bottom: 1.5rem;
 }
 
@@ -35,7 +49,7 @@
     font-family: 'Lato';
     font-style: normal;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 24px;
     color: #14142B;
 }
 
@@ -43,7 +57,7 @@
     font-family: 'Lato';
     font-style: normal;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 14px;
     color: #6E7191;
 }
 
@@ -87,10 +101,20 @@
 }
 
 @media screen and (max-width: 450px) {
-    .cancelModal {
+    /* .cancelModal {
         position: absolute;
         top: 25%;
         right: 10%;
         cursor: pointer;
+    } */
+}
+
+
+@media screen and (max-width: 620px) {
+    .divPosition .upload_div {
+        width: 100%;
+        padding: 15px;
+        gap: 20px;
     }
+
 }

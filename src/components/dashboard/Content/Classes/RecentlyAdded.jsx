@@ -5,6 +5,7 @@ import { accessToken } from "../../../../config";
 import useAxiosGetWithoutToken from "../../../../customHooks/useAxiosGetWithoutToken";
 import { getPostedDate, shortenText } from "../../../../functions";
 import BackdropLoader from '../../../Loader/BackdropLoader';
+import { Link } from "react-router-dom";
 
 
 const RecentlyAdded = () => {
@@ -32,7 +33,7 @@ const RecentlyAdded = () => {
         <h5 className="class-section-heading">Recently Added</h5>
         <div className="single-classes">
           {recentClassContents.map((content) => (
-            <div className="single-class" key={content.id}>
+            <Link to={`/class-videos?video=${content.id}`} key={content.id} className="single-class" >
               <div className="class-image">
                 <img src={ClassOneImg} alt={content.name} />
               </div>
@@ -46,7 +47,7 @@ const RecentlyAdded = () => {
                   <p>{getPostedDate(content.createdAt)}</p>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </React.Fragment>

@@ -15,6 +15,7 @@ import NewClass from "./components/dashboard/Content/Classes/NewClass";
 import Assignment from "./components/dashboard/Content/Assignment/Assignment";
 import NewAssignment from "./components/dashboard/Content/Assignment/NewAssignment";
 import SelectClass from "./components/dashboard/Content/Assignment/SelectClass";
+import ClassVideos from "./components/dashboard/Content/Classes/ClassVideos";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/select-class" element={<SelectClass />} />
         <Route path="/assignments" element={<Assignment />} />
+        <Route path="/class-videos" element={<ClassVideos />} />
         <Route path="/new-assignment" element={<NewAssignment />} />
       </Routes>
     </Router>

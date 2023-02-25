@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import "./Sidebar.css";
 import Logo from "../../../assets/images/Logo.png";
@@ -65,7 +66,7 @@ const Sidebar = (props) => {
             </li>
           </Link>
 
-          <Link to="/courses">
+          {/* <Link to="/courses">
             <li className={handleMenu2}>
             <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M8.21375 11.7525V20.3275" stroke="#8A8A8A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -76,7 +77,7 @@ const Sidebar = (props) => {
 
               <p>Courses</p>
             </li>
-          </Link>
+          </Link> */}
 
           <Link to="/select-class">
             <li className={handleMenu6}>
